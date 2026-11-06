@@ -1,0 +1,7 @@
+# Optional rule for the soyaka.watts Omarchy bar widget. Install it yourself:
+#   sudo install -m 644 udev/99-watts.rules /etc/udev/rules.d/
+#   sudo udevadm control --reload && sudo udevadm trigger --subsystem-match=power_supply --subsystem-match=powercap
+# Lets members of the wheel group set the battery charge thresholds.
+SUBSYSTEM=="power_supply", KERNEL=="BAT[0-9]", RUN+="/bin/sh -c 'cd /sys%p && chgrp wheel charge_control_*_threshold && chmod g+w charge_control_*_threshold'"
+# Lets members of the wheel group read the Intel RAPL CPU energy counter (CPU watts while on AC).
+SUBSYSTEM=="powercap", KERNEL=="intel-rapl:0", RUN+="/bin/sh -c 'chgrp wheel /sys%p/energy_uj && chmod g+r /sys%p/energy_uj'"

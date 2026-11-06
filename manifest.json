@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "id": "soyaka.watts",
+  "name": "Watts",
+  "version": "1.0.0",
+  "author": "Sonat Yalcinkaya",
+  "license": "MIT",
+  "description": "Live laptop power draw in watts, a battery-life estimate in the tooltip, and a click to switch the charge limit between 80% and 100%.",
+  "kinds": [
+    "bar-widget"
+  ],
+  "entryPoints": {
+    "barWidget": "Watts.qml"
+  },
+  "barWidget": {
+    "displayName": "Watts",
+    "description": "Power draw in W; click to switch the charge limit 80%/100%",
+    "category": "System",
+    "allowMultiple": false
+  }
+}
